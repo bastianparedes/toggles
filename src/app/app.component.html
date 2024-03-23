@@ -51,7 +51,7 @@
       <div class="pill-group flex flex-col">
         @for (app of apps; track app.name) {
           @for (toggle of app.toggles; track toggle.name) {
-            <app-toggle [name]="toggle.name" [value]="toggle.value"></app-toggle>
+            <app-toggle [appName]="app.name" [toggleName]="toggle.name" [value]="toggle.value"></app-toggle>
           }
         }
       </div>

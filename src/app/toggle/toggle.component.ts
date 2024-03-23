@@ -8,7 +8,8 @@ import { Component, Input } from '@angular/core';
 })
 
 export class ToggleComponent {
-  @Input() name!: string;
+  @Input() appName!: string;
+  @Input() toggleName!: string;
   @Input() value!: boolean;
 
   switchToggle () {
