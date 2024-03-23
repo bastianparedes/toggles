@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { keys } from '../../utils/object';
 import { ToggleComponent } from './toggle/toggle.component';
 
@@ -38,13 +37,11 @@ const apps = keys(fullToggles).map((appName) => {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ToggleComponent],
+  imports: [ToggleComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 
 export class AppComponent {
   apps = apps;
-  name = 'Bastián';
-  title = 'project';
 }
