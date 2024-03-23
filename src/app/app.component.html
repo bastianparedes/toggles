@@ -49,11 +49,29 @@
       <h1>Hello, {{ title }} {{ name }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
       <div class="pill-group flex flex-col">
-        @for (app of apps; track app.name) {
-          @for (toggle of app.toggles; track toggle.name) {
-            <app-toggle [appName]="app.name" [toggleName]="toggle.name" [value]="toggle.value"></app-toggle>
-          }
-        }
+        <table>
+          <thead>
+            <tr class="text-left">
+              <th>App</th>
+              <th>Toggle</th>
+              <th>Is active</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (app of apps; track app.name) {
+              @for (toggle of app.toggles; track toggle.name) {
+                <tr>
+                  <td>{{ app.name }}</td>
+                  <td>{{ toggle.name }}</td>
+                  <td>
+                    <app-toggle [appName]="app.name" [toggleName]="toggle.name" [value]="toggle.value"></app-toggle>
+                  </td>
+
+              </tr>
+              }
+            }
+          </tbody>
+        </table>
       </div>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>

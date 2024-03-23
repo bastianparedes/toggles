@@ -12,7 +12,14 @@ export class ToggleComponent {
   @Input() toggleName!: string;
   @Input() value!: boolean;
 
-  switchToggle () {
-    this.value = !this.value;
+  async switchToggle() {
+    const result = await new Promise((resolve) => {
+      setTimeout(() => {
+        this.value = !this.value;
+        resolve(this.value);
+      }, 500);
+    });
+
+    console.log(result);
   }
 }
