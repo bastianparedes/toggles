@@ -8,9 +8,9 @@ import { Component, Input } from '@angular/core';
 })
 
 export class ToggleComponent {
-  @Input() appName!: string;
-  @Input() toggleName!: string;
-  @Input() value!: boolean;
+  @Input({ required: true }) appName!: string;
+  @Input({ required: true }) toggleName!: string;
+  @Input({ required: true }) value!: boolean;
 
   async switchToggle() {
     const result = await new Promise((resolve) => {
