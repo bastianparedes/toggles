@@ -7,17 +7,22 @@
     </tr>
   </thead>
   <tbody>
-    <!-- @for (app of apps; track app.name) {
-      @for (toggle of app.toggles; track toggle.name) {
-        <tr>
-          <td>{{ app.name }}</td>
-          <td>{{ toggle.name }}</td>
-          <td>
-            <app-toggle [appName]="app.name" [toggleName]="toggle.name" [value]="toggle.value"></app-toggle>
-          </td>
-
-      </tr>
+    @if (apps$ | async; as apps) {
+      @for (app of apps; track app.name) {
+        @for (toggle of app.toggles; track toggle.name) {
+          <tr>
+            <td>{{ app.name }}</td>
+            <td>{{ toggle.name }}</td>
+            <td>
+              <app-toggle [appName]="app.name" [toggleName]="toggle.name" [value]="toggle.value"></app-toggle>
+            </td>
+  
+        </tr>
+        }
       }
-    } -->
+    } @else {
+      HOLA2
+    }
+    
   </tbody>
 </table>
