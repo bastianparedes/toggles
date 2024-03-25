@@ -1,6 +1,7 @@
 {
   "version": 2,
   "env": {
+    "EDGE_CONFIG": "@EDGE_CONFIG"
   },
   "builds": [
     {
