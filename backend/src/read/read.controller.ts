@@ -6,7 +6,7 @@ export class ReadController {
   constructor(private readonly appService: ReadService) {}
 
   @Get()
-  get(appName: string) {
-    return this.get(appName);
+  getApps() {
+    return this.appService.getApps();
   }
 }
