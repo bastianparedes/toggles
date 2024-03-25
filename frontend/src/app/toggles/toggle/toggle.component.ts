@@ -13,13 +13,17 @@ export class ToggleComponent {
   @Input({ required: true }) value!: boolean;
 
   async switchToggle() {
-    const result = await new Promise((resolve) => {
-      setTimeout(() => {
-        this.value = !this.value;
-        resolve(this.value);
-      }, 500);
+    this.value = !this.value;
+    fetch('https://toggles-backend.vercel.app/api/update', {
+      method: 'PUT',
+      body: JSON.stringify({
+        appName: this.appName,
+        toggleName: this.toggleName,
+        value: this.value
+      }),
+      headers: {
+        "Access-Control-Allow-Origin": '*'
+      }
     });
-
-    console.log(result);
   }
 }

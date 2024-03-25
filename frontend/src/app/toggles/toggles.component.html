@@ -9,19 +9,19 @@
   <tbody>
     @if (apps$ | async; as apps) {
       @for (app of apps; track app.name) {
+        <tr>
+          <td>{{ app.name }}</td>
+        </tr>
         @for (toggle of app.toggles; track toggle.name) {
           <tr>
-            <td>{{ app.name }}</td>
+            <td></td>
             <td>{{ toggle.name }}</td>
             <td>
               <app-toggle [appName]="app.name" [toggleName]="toggle.name" [value]="toggle.value"></app-toggle>
             </td>
-  
-        </tr>
+          </tr>
         }
       }
-    } @else {
-      HOLA2
     }
     
   </tbody>
