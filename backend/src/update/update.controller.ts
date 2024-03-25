@@ -6,7 +6,7 @@ export class UpdateController {
   constructor(private readonly appService: UpdateService) {}
 
   @Put()
-  async post(
+  async put(
     @Body('appName') appName: string,
     @Body('toggleName') toggleName: string,
     @Body('value') value: boolean,

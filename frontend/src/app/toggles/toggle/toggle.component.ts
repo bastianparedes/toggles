@@ -14,16 +14,14 @@ export class ToggleComponent {
 
   async switchToggle() {
     this.value = !this.value;
-    fetch('https://toggles-backend.vercel.app/api/update', {
+    fetch('https://toggles.bastianparedes.com/api/update', {
       method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         appName: this.appName,
         toggleName: this.toggleName,
         value: this.value
       }),
-      headers: {
-        "Access-Control-Allow-Origin": '*'
-      }
     });
   }
 }

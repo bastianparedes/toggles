@@ -10,6 +10,6 @@ export class TogglesService {
   constructor(private http: HttpClient) { }
 
   getToggles() {
-    return this.http.get<Apps>('https://toggles-backend.vercel.app/api/read');
+    return this.http.get<Apps>('https://toggles.bastianparedes.com/api/read');
   }
 }
