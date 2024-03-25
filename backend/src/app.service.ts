@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import { getAll } from '@vercel/edge-config';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  async getHello() {
+    return await getAll();
   }
 }
