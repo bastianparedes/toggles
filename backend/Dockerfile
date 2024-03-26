@@ -5,6 +5,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm i
 
-EXPOSE 4200
+EXPOSE 3000
 
 CMD [ "npm", "run", "start:dev" ]
