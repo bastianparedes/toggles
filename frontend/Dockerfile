@@ -1,10 +1,12 @@
 FROM node:20.11.1
 
+RUN mkdir -p /app
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm i
+RUN npm install -g @angular/cli
+
+COPY package.json /app/package.json
+RUN npm install
 
 EXPOSE 4200
-
-CMD [ "npm", "run", "start" ]
+CMD ["npm", "run", "start", "--", "--host", "0.0.0.0", "--poll=2000", "--port", "4200", "--disable-host-check"]
