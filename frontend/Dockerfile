@@ -9,4 +9,4 @@ COPY package.json /app/package.json
 RUN npm install
 
 EXPOSE 4200
-CMD ["npm", "run", "start", "--", "--host", "0.0.0.0", "--poll=2000", "--port", "4200", "--disable-host-check"]
+CMD ["npm", "run", "start", "--", "--host", "0.0.0.0", "--poll=1000", "--disable-host-check"]
