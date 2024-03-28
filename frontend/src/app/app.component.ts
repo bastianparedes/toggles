@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { keys } from '../../utils/object';
+import { keys } from './utils/object';
 import { TogglesComponent } from './toggles/toggles.component';
 
 @Component({

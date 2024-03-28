@@ -8,6 +8,11 @@ services:
     image: toggles/backend
     ports:
       - "3000:3000"
+    environment:
+      EDGE_ID: "${EDGE_ID}"
+      EDGE_CONFIG_TOKEN: "${EDGE_CONFIG_TOKEN}"
+      EDGE_CONFIG: "https://edge-config.vercel.com/${EDGE_ID}?token=${EDGE_CONFIG_TOKEN}"
+      VERCEL_TOKEN: "${VERCEL_TOKEN}"
     volumes:
       - /app/node_modules
       - ./backend:/app
@@ -19,6 +24,8 @@ services:
     image: toggles/frontend
     ports:
       - "4200:4200"
+    environment:
+      BACKEND_URL: "http://localhost:3000/api"
     volumes:
       - /app/node_modules
       - ./frontend:/app

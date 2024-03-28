@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import type { Apps } from '../types/toggle';
+import type { Apps } from '../utils/types/toggle';
 import { Observable } from 'rxjs';
 
 @Injectable({

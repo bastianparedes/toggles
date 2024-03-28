@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { keys } from '../../../utils/object';
+import { keys } from '../utils/object';
 import { ToggleComponent } from './toggle/toggle.component';
 import { TogglesService } from './toggles.service';
 import { Observable } from 'rxjs';
-import type { Apps } from '../types/toggle';
+import type { Apps } from '../utils/types/toggle';
 import { AsyncPipe } from '@angular/common';
 
 @Component({

@@ -14,7 +14,8 @@ export class ToggleComponent {
 
   async switchToggle() {
     this.value = !this.value;
-    fetch('https://toggles.bastianparedes.com/api/update', {
+    console.log('AYUDA', process.env['BACKEND_URL']);
+    /* fetch(`${constants.backendUrl}/update`, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -22,6 +23,6 @@ export class ToggleComponent {
         toggleName: this.toggleName,
         value: this.value
       }),
-    });
+    }); */
   }
 }
