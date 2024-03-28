@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import type { Apps } from '../utils/types/toggle';
-import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,6 @@ export class TogglesService {
   constructor(private http: HttpClient) { }
 
   getToggles() {
-    return this.http.get<Apps>('https://toggles.bastianparedes.com/api/read');
+    return this.http.get<Apps>(`${environment.BACKEND_URL}/read`);
   }
 }

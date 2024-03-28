@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-toggle',
@@ -14,8 +15,7 @@ export class ToggleComponent {
 
   async switchToggle() {
     this.value = !this.value;
-    console.log('AYUDA', process.env['BACKEND_URL']);
-    /* fetch(`${constants.backendUrl}/update`, {
+    fetch(`${environment.BACKEND_URL}/update`, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -23,6 +23,6 @@ export class ToggleComponent {
         toggleName: this.toggleName,
         value: this.value
       }),
-    }); */
+    });
   }
 }
