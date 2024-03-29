@@ -5,9 +5,16 @@ import { CreateService } from './create/create.service';
 import { CreateController } from './create/create.controller';
 import { CreateModule } from './create/create.module';
 import { UpdateModule } from './update/update.module';
+import { TrpcModule } from '../src/trpc/trpc.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), ReadModule, CreateModule, UpdateModule],
+  imports: [
+    ConfigModule.forRoot(),
+    ReadModule,
+    CreateModule,
+    UpdateModule,
+    TrpcModule,
+  ],
   providers: [CreateService],
   controllers: [CreateController],
 })
