@@ -3,8 +3,8 @@
     <thead>
       <tr class="text-left">
         <th>App</th>
-        <th>Toggle</th>
-        <th>Is active</th>
+        <th class="pl-5">Toggle</th>
+        <th class="pl-5">Is active</th>
       </tr>
     </thead>
   <tbody>
@@ -15,9 +15,11 @@
       @for (toggle of app.toggles; track toggle.name) {
         <tr>
           <td></td>
-          <td>{{ toggle.name }}</td>
-          <td>
-            <app-toggle [appName]="app.name" [toggleName]="toggle.name" [value]="toggle.value"></app-toggle>
+          <td class="pl-5">
+            <app-toggle-name [appName]="app.name" [toggleName]="toggle.name" />
+          </td>
+          <td class="pl-5">
+            <app-toggle-value [appName]="app.name" [toggleName]="toggle.name" [value]="toggle.value" />
           </td>
         </tr>
       }

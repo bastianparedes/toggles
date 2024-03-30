@@ -2,13 +2,13 @@ import { Component, Input } from '@angular/core';
 import { environment } from '../../../environments/environment';
 
 @Component({
-  selector: 'app-toggle',
+  selector: 'app-toggle-value',
   standalone: true,
   imports: [],
   templateUrl: './toggle.component.html'
 })
 
-export class ToggleComponent {
+export class ToggleValueComponent {
   @Input({ required: true }) appName!: string;
   @Input({ required: true }) toggleName!: string;
   @Input({ required: true }) value!: boolean;
