@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { get } from '@vercel/edge-config';
+import { getToggles } from '../utils/verceEdge';
 
 @Injectable()
 export class UpdateService {
   async getToggles(appName: string) {
-    return await get(appName);
+    return await getToggles(appName);
   }
 }

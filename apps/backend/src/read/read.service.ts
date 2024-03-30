@@ -1,12 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { getAll } from '@vercel/edge-config';
-import type { RawApps } from '../../types/toggle';
-import { keys } from '../../utils/object';
+import { keys } from '../utils/object';
+import { getApps } from '../utils/verceEdge';
 
 @Injectable()
 export class ReadService {
   async getApps() {
-    const rawApps: RawApps = await getAll();
+    const rawApps = await getApps();
     const apps = keys(rawApps).map((appName) => {
       const togglesByApp = rawApps[appName];
       const toggleNames = keys(togglesByApp);
@@ -16,9 +15,9 @@ export class ReadService {
         toggles: toggleNames.map((toggleName) => {
           return {
             name: toggleName as string,
-            value: togglesByApp[toggleName] as boolean
-          }
-        })
+            value: togglesByApp[toggleName] as boolean,
+          };
+        }),
       };
     });
     return apps;

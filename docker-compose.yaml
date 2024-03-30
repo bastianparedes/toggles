@@ -11,7 +11,6 @@ services:
     environment:
       EDGE_ID: "${EDGE_ID}"
       EDGE_CONFIG_TOKEN: "${EDGE_CONFIG_TOKEN}"
-      EDGE_CONFIG: "https://edge-config.vercel.com/${EDGE_ID}?token=${EDGE_CONFIG_TOKEN}"
       VERCEL_TOKEN: "${VERCEL_TOKEN}"
     volumes:
       - /app/node_modules
