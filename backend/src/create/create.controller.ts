@@ -1,4 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
+import environment from '../environments';
 
 @Controller('create')
 export class CreateController {
@@ -6,11 +7,11 @@ export class CreateController {
   async post(@Body('appName') appName: string) {
     try {
       const updateEdgeConfig = await fetch(
-        `https://api.vercel.com/v1/edge-config/${process.env.EDGE_ID}/items`,
+        `https://api.vercel.com/v1/edge-config/${environment.EDGE_ID}/items`,
         {
           method: 'PATCH',
           headers: {
-            Authorization: `Bearer ${process.env.VERCEL_TOKEN}`,
+            Authorization: `Bearer ${environment.VERCEL_TOKEN}`,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({

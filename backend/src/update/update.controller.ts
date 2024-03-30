@@ -1,5 +1,6 @@
 import { Body, Controller, Put } from '@nestjs/common';
 import { UpdateService } from './update.service';
+import environment from '../environments';
 
 @Controller('update')
 export class UpdateController {
@@ -16,11 +17,11 @@ export class UpdateController {
       toggles[toggleName] = value;
 
       const updateEdgeConfig = await fetch(
-        `https://api.vercel.com/v1/edge-config/${process.env.EDGE_ID}/items`,
+        `https://api.vercel.com/v1/edge-config/${environment.EDGE_ID}/items`,
         {
           method: 'PATCH',
           headers: {
-            Authorization: `Bearer ${process.env.VERCEL_TOKEN}`,
+            Authorization: `Bearer ${environment.VERCEL_TOKEN}`,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({

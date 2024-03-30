@@ -24,8 +24,6 @@ services:
     image: toggles/frontend
     ports:
       - "4200:4200"
-    environment:
-      BACKEND_URL: "http://localhost:3000/api"
     volumes:
       - /app/node_modules
       - ./frontend:/app
