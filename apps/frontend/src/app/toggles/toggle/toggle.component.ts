@@ -15,7 +15,7 @@ export class ToggleComponent {
 
   async switchToggle() {
     this.value = !this.value;
-    fetch(`${environment.BACKEND_URL}/update`, {
+    fetch(`/api/update`, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

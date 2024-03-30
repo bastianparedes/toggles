@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { TrpcRouter } from '../trpc/trpc.router';
-import { TrpcService } from '../trpc/trpc.service';
+import { TrpcRouter } from './trpc.router';
+import { TrpcService } from './trpc.service';
 
 @Module({
   imports: [],

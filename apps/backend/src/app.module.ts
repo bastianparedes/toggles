@@ -5,7 +5,7 @@ import { CreateService } from './create/create.service';
 import { CreateController } from './create/create.controller';
 import { CreateModule } from './create/create.module';
 import { UpdateModule } from './update/update.module';
-import { TrpcModule } from '../src/trpc/trpc.module';
+import { TrpcModule } from './trpc/trpc.module';
 
 @Module({
   imports: [

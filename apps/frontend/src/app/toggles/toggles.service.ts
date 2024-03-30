@@ -10,6 +10,6 @@ export class TogglesService {
   constructor(private http: HttpClient) { }
 
   getToggles() {
-    return this.http.get<Apps>(`${environment.BACKEND_URL}/read`);
+    return this.http.get<Apps>(`/api/read`);
   }
 }

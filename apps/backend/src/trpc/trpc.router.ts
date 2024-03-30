@@ -1,5 +1,5 @@
 import { INestApplication, Injectable } from '@nestjs/common';
-import { TrpcService } from '../trpc/trpc.service';
+import { TrpcService } from './trpc.service';
 import { z } from 'zod';
 import * as trpcExpress from '@trpc/server/adapters/express';
 

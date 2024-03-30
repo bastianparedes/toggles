@@ -4,13 +4,12 @@
   "description": "https://toggles.bastianparedes.com",
   "main": "index.js",
   "scripts": {
-    "dev": "docker compose up"
+    "dev": "turbo run dev"
   },
   "workspaces": [
-    "backend",
-    "frontend"
+    "apps/*"
   ],
   "devDependencies": {
-    "typescript": "^5.4.3"
+    "turbo": "^1.13.0"
   }
 }

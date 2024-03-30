@@ -3,7 +3,7 @@ services:
 
   backend:
     build:
-      context: ./backend
+      context: ./apps/backend
       dockerfile: Dockerfile
     image: toggles/backend
     ports:
@@ -15,15 +15,15 @@ services:
       VERCEL_TOKEN: "${VERCEL_TOKEN}"
     volumes:
       - /app/node_modules
-      - ./backend:/app
+      - ./apps/backend:/app
 
   frontend:
     build:
-      context: ./frontend
+      context: ./apps/frontend
       dockerfile: Dockerfile
     image: toggles/frontend
     ports:
       - "4200:4200"
     volumes:
       - /app/node_modules
-      - ./frontend:/app
+      - ./apps/frontend:/app
