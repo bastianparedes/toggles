@@ -6,7 +6,6 @@ import { TogglesComponent } from './toggles/toggles.component';
   standalone: true,
   imports: [TogglesComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
 
 export class AppComponent {};
