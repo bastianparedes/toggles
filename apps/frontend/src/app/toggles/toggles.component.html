@@ -1,28 +1,29 @@
-<table>
-  <thead>
-    <tr class="text-left">
-      <th>App</th>
-      <th>Toggle</th>
-      <th>Is active</th>
-    </tr>
-  </thead>
+@if (apps$ | async; as apps) {
+  <table>
+    <thead>
+      <tr class="text-left">
+        <th>App</th>
+        <th>Toggle</th>
+        <th>Is active</th>
+      </tr>
+    </thead>
   <tbody>
-    @if (apps$ | async; as apps) {
-      @for (app of apps; track app.name) {
+    @for (app of apps; track app.name) {
+      <tr>
+        <td>{{ app.name }}</td>
+      </tr>
+      @for (toggle of app.toggles; track toggle.name) {
         <tr>
-          <td>{{ app.name }}</td>
+          <td></td>
+          <td>{{ toggle.name }}</td>
+          <td>
+            <app-toggle [appName]="app.name" [toggleName]="toggle.name" [value]="toggle.value"></app-toggle>
+          </td>
         </tr>
-        @for (toggle of app.toggles; track toggle.name) {
-          <tr>
-            <td></td>
-            <td>{{ toggle.name }}</td>
-            <td>
-              <app-toggle [appName]="app.name" [toggleName]="toggle.name" [value]="toggle.value"></app-toggle>
-            </td>
-          </tr>
-        }
       }
     }
-    
-  </tbody>
-</table>
+    </tbody>
+  </table>
+} @else {
+  <div>No Data</div>
+}
