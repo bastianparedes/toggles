@@ -4,7 +4,8 @@
   "description": "https://toggles.bastianparedes.com",
   "main": "index.js",
   "scripts": {
-    "dev": "turbo run dev"
+    "dev": "turbo run dev",
+    "build": "turbo build"
   },
   "workspaces": [
     "apps/*"
