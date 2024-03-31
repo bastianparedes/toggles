@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { trpcClient } from '../../../trpc';
 
 @Component({
   selector: 'app-toggle-value',
@@ -15,6 +15,8 @@ export class ToggleValueComponent {
 
   async switchToggle() {
     this.value = !this.value;
+    console.log(await trpcClient.hello.query({}));
+    return ;
     fetch(`/api/update`, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},

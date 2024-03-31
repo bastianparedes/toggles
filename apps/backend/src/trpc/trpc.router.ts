@@ -8,11 +8,9 @@ export class TrpcRouter {
   constructor(private readonly trpc: TrpcService) {}
 
   appRouter = this.trpc.router({
-    hello: this.trpc.procedure
-      .input(z.object({ name: z.string().optional() }))
-      .query(({ input }) => {
-        return `Hello ${input.name ?? `Bilbo`}`;
-      }),
+    hello: this.trpc.procedure.input(z.object({}).optional()).query(() => {
+      return `Hello world`;
+    }),
   });
 
   async applyMiddleware(app: INestApplication) {
