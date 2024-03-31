@@ -39,11 +39,8 @@ export class TrpcRouter {
       .query(async ({ input }) => {
         const toggles = await getToggles(input.appName);
         toggles[input.toggleName] = input.value;
-        return updateToggle(input.appName, input.value);
+        return updateToggle(input.appName, toggles);
       }),
-    hello: this.trpc.procedure.input(z.object({}).optional()).query(() => {
-      return `Hello world`;
-    }),
   });
 
   async applyMiddleware(app: INestApplication) {
