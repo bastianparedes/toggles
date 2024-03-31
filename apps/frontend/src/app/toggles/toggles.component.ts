@@ -17,7 +17,7 @@ export class TogglesComponent implements OnInit {
 
   constructor(private service: TogglesService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.apps$ = this.service.getToggles();
   }
 }
