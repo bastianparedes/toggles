@@ -2,22 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { ToggleValueComponent } from './toggle-value/toggle.component';
 import { ToggleNameComponent } from './toggle-name/toggle-name.component';
 import { TogglesService } from './toggles.service';
-import { Observable } from 'rxjs';
-import type { Apps } from '../utils/types/toggle';
-import { AsyncPipe } from '@angular/common';
+import type { Apps } from '../../../../../types/toggle';
 
 @Component({
   selector: 'app-toggles',
   standalone: true,
-  imports: [AsyncPipe, ToggleNameComponent, ToggleValueComponent],
+  imports: [ToggleNameComponent, ToggleValueComponent],
   templateUrl: './toggles.component.html'
 })
 export class TogglesComponent implements OnInit {
-  public apps$!: Observable<Apps>;
+  public apps!: Apps;
 
   constructor(private service: TogglesService) {}
 
-  ngOnInit() {
-    this.apps$ = this.service.getToggles();
+  async ngOnInit() {
+    this.apps = await this.service.getToggles();
   }
 }

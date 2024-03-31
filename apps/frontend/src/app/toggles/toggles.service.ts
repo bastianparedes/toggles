@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import type { Apps } from '../utils/types/toggle';
+import { trpcClient } from '../../trpc';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TogglesService {
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
-  getToggles() {
-    return this.http.get<Apps>(`/api/read`);
+  async getToggles() {
+    return await trpcClient.getApps.query();
   }
 }
